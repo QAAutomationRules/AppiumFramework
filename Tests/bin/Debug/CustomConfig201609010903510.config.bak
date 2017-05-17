@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<configuration>
+  <configSections>
+    <section name="specFlow" type="TechTalk.SpecFlow.Configuration.ConfigurationSectionHandler, TechTalk.SpecFlow" />
+  </configSections>
+  
+  <specFlow>
+    <unitTestProvider name="SpecRun" /><plugins>
+      <add name="SpecRun" />
+    </plugins></specFlow>
+  <appSettings>
+    <add key="browserType" value="chrome" />
+    <add key="URL" value="https://www.amazon.com/" />
+    <add key="FFBinary" value="" />
+    <add key="LogFile" value="" />
+    <add key="TimeStamp" value="01-30-2014 12:21:01" />
+    <add key="FileNamePart" value="" />
+    <add key="ThreadID" value="0" />
+    <add key="WriteToDb" value="true" />
+    <add key="DatabaseName" value="" />
+  </appSettings>
+  <runtime>
+    <assemblyBinding xmlns="urn:schemas-microsoft-com:asm.v1">
+      <dependentAssembly>
+        <assemblyIdentity name="TechTalk.SpecFlow" publicKeyToken="0778194805d6db41" culture="neutral" />
+        <bindingRedirect oldVersion="0.0.0.0-2.0.0.0" newVersion="2.0.0.0" />
+      </dependentAssembly>
+    </assemblyBinding>
+  </runtime>
+</configuration>

@@ -1,0 +1,11 @@
+C:\Healthcare\DEN_ClearIQ\Automation\Main\TestFramework\bin\Release\TestFramework.dll
+C:\Healthcare\DEN_ClearIQ\Automation\Main\TestFramework\bin\Release\TestFramework.pdb
+C:\Healthcare\DEN_ClearIQ\Automation\Main\TestFramework\bin\Release\Interface.exe
+C:\Healthcare\DEN_ClearIQ\Automation\Main\TestFramework\bin\Release\WebDriver.dll
+C:\Healthcare\DEN_ClearIQ\Automation\Main\TestFramework\bin\Release\WebDriver.Support.dll
+C:\Healthcare\DEN_ClearIQ\Automation\Main\TestFramework\bin\Release\Interface.pdb
+C:\Healthcare\DEN_ClearIQ\Automation\Main\TestFramework\bin\Release\WebDriver.xml
+C:\Healthcare\DEN_ClearIQ\Automation\Main\TestFramework\bin\Release\WebDriver.Support.xml
+C:\Healthcare\DEN_ClearIQ\Automation\Main\TestFramework\obj\Release\TestFramework.csprojResolveAssemblyReference.cache
+C:\Healthcare\DEN_ClearIQ\Automation\Main\TestFramework\obj\Release\TestFramework.dll
+C:\Healthcare\DEN_ClearIQ\Automation\Main\TestFramework\obj\Release\TestFramework.pdb

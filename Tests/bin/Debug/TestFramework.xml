@@ -1,0 +1,229 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>TestFramework</name>
+    </assembly>
+    <members>
+        <member name="T:TestFramework.Browser">
+            <summary>
+            The Browser class contains methods that perform functions directly with the Selenium WebDriver
+            These overwrite some of the built in Selenium webdriver calls, adding additional validations around them
+            to account for webpage wait times
+            </summary>
+        </member>
+        <member name="M:TestFramework.Browser.GetUrl">
+            <summary>
+            Gets the URL setting from the app.config
+            </summary>
+            <returns>The URL in the app.config</returns>
+        </member>
+        <member name="M:TestFramework.Browser.GetFileNamePart">
+            <summary>
+            Gets the FileNamePart setting from the app.config
+            This is what will be appended to the beginning of all SpecRun log files
+            </summary>
+            <returns>The FileNamePart from the app.config</returns>
+        </member>
+        <member name="M:TestFramework.Browser.GetTimeStamp">
+            <summary>
+            Gets the TimeStamp from the app.config
+            This provides a common start time indicating when the entire run started
+            Not just the time of the single test
+            </summary>
+            <returns>The TimeStamp from the app.config</returns>
+        </member>
+        <member name="M:TestFramework.Browser.GetLogFileName">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:TestFramework.BrowserFunctions">
+            <summary>
+            The BrowserFunctions class contains calls to the browser that are common to perform on any page
+            </summary>
+        </member>
+        <member name="M:TestFramework.BrowserFunctions.Goto(System.String)">
+            <summary>
+            Have the driver go to a specified URL in the browser
+            </summary>
+            <param name="url">The URL to go to</param>
+        </member>
+        <member name="M:TestFramework.BrowserFunctions.CheckTitle(System.String)">
+            <summary>
+            Have the driver check the title of the webpage that the browser is on
+            </summary>
+            <param name="pageTitle">The title that is expected</param>
+            <returns>true if the title is as expected, false if the title is different than expected</returns>
+        </member>
+        <member name="M:TestFramework.BrowserFunctions.CheckUrlContains(System.String)">
+            <summary>
+            Have the driver check that the title of the webpage that the browser is on contains specified text
+            </summary>
+            <param name="text">The text to check for in the title</param>
+            <returns>true if the text is found, false if the text is not found</returns>
+        </member>
+        <member name="M:TestFramework.BrowserFunctions.CheckForError">
+            <summary>
+            Have the driver check for an error text on the page
+            This text would need to be updated for the application under test
+            </summary>
+            <returns>true if the text is found, false if the text is not found</returns>
+        </member>
+        <member name="M:TestFramework.BrowserFunctions.SelectFromDropDown(OpenQA.Selenium.IWebElement,System.String)">
+            <summary>
+            Select a specified value from a specified drop down
+            There is redundant logic in this method so that if the specified text is not found in its entirety, 
+            it will search for an element that contains the specified text.
+            If now option in the drop down is found, an error will be logged and an exception thrown to stop the test.
+            </summary>
+            <param name="element">The drop down to use</param>
+            <param name="expectedValue">The value to select</param>
+        </member>
+        <member name="M:TestFramework.BrowserFunctions.DoSelect(OpenQA.Selenium.IWebElement,System.String)">
+            <summary>
+            This method is called by the SelectFromDropDown method and does the actual selection
+            If no selection can be made, errors are logged and an exception is thrown to stop the test
+            </summary>
+            <param name="element">The drop down to use</param>
+            <param name="expectedValue">The value to select</param>
+            <returns>The text that was actually selected in the drop down</returns>
+        </member>
+        <member name="M:TestFramework.BrowserFunctions.GetSelectedDropDownValue(OpenQA.Selenium.IWebElement)">
+            <summary>
+            Gets the option that is currently selected within a specified drop down in the browser
+            If the method is unable to get the selected text, an error is written and an exception is thrown to stop the test
+            </summary>
+            <param name="element">The dropdown element to use</param>
+            <returns>The selected text if the selection was successful</returns>
+        </member>
+        <member name="M:TestFramework.BrowserFunctions.Type(OpenQA.Selenium.IWebElement,System.String)">
+            <summary>
+            This method will type a specified value into a specified text box element
+            Error checking and validation are done to ensure that the expected value has been typed correctly into the text box
+            If the text is unable to be entered into the text box, errors are written and an exception is thrown to stop the test
+            </summary>
+            <param name="element">The text box to type into</param>
+            <param name="expectedValue">The text that should be entered</param>
+        </member>
+        <member name="M:TestFramework.BrowserFunctions.IsElementEmpty(OpenQA.Selenium.IWebElement)">
+            <summary>
+            Validates that the value of an element is empty
+            Used with text box elements to validate no text is in the textbox
+            </summary>
+            <param name="element">The element to validate</param>
+            <returns>True if the element is empty, false if there is text in the element or the value is unable to be found</returns>
+        </member>
+        <member name="M:TestFramework.BrowserFunctions.GetElementText(OpenQA.Selenium.IWebElement)">
+            <summary>
+            Gets the text of a specified element
+            </summary>
+            <param name="element">The element to get the text of</param>
+            <returns>The text of the element</returns>
+        </member>
+        <member name="M:TestFramework.BrowserFunctions.MultiSelectAdd(OpenQA.Selenium.IWebElement,OpenQA.Selenium.IWebElement,System.String,OpenQA.Selenium.IWebElement)">
+            <summary>
+            The MultiSelectAdd method handles multi select controls, allowing the addition of one or more
+            elements from the left side of the select to be added to the right side of the select
+            The XPath within the item list may need to be changed based on the application under test 
+            </summary>
+            <param name="availableItemList">The left side of the multi select control, listing the available itmes</param>
+            <param name="selectedItemList">The right side of the multi select control, listing the selected items</param>
+            <param name="itemToSelect">The text of the item to be selected</param>
+            <param name="addButton">The button that performs the addition of the selected element</param>
+        </member>
+        <member name="M:TestFramework.BrowserFunctions.MultiSelectRemove(System.String,System.String,System.String,System.String)">
+            <summary>
+            The MultiSelectRemove method handles multi select controls, allowing the removal of one or more
+            elements from the right side of the select, which will then be put back into the available items on the left side of the list
+            The XPath within the item list may need to be changed based on the application under test 
+            </summary>
+            <param name="availableItemId">The left side of the multi select control, listing the available itmes</param>
+            <param name="selectedItemId">The right side of the multi select control, listing the selected items</param>
+            <param name="itemToSelect">The text of the item to be selected</param>
+            <param name="removeButtonId">The button that performs the removal of the selected element</param>
+        </member>
+        <member name="M:TestFramework.BrowserFunctions.Checkbox(OpenQA.Selenium.IWebElement,System.Boolean)">
+            <summary>
+            The Checkbox method provides the ability to check or uncheck a checkbox and validate that it is set correctly
+            based on the expected value that is passed in
+            </summary>
+            <param name="element">The checkbox element</param>
+            <param name="turnOn">True if the checkbox should be checked, false if the checkbox should be unchecked</param>
+            <returns>True if the checkbox is set as expected, false if it is not set as expected</returns>
+        </member>
+        <member name="M:TestFramework.BrowserFunctions.GetCheckboxState(OpenQA.Selenium.IWebElement)">
+            <summary>
+            Gets the current state of a specified checkbox element
+            </summary>
+            <param name="element">The checkbox element to validate</param>
+            <returns>True if the checkbox is checked, false if the checkbox can not be found or is unchecked</returns>
+        </member>
+        <member name="T:TestFramework.AmazonData">
+            <summary>
+            Use one or more data objects as a way to pass data between features and the back end page objects.
+            For more information on context injection, see: http://www.specflow.org/documentation/Context-Injection/
+            </summary>
+        </member>
+        <member name="T:TestFramework.LogFunctions">
+            <summary>
+            These methods allow writing additional lines to the SpecFlow log file
+            The class types correspond to CSS that has been added to allow the colors to display in the output
+            </summary>
+        </member>
+        <member name="M:TestFramework.LogFunctions.WriteWarning(System.String)">
+            <summary>
+            Write a warning to the log file, these will show in orange text
+            </summary>
+            <param name="message">Message to be displayed</param>
+        </member>
+        <member name="M:TestFramework.LogFunctions.WriteError(System.String)">
+            <summary>
+            Write an error to the log file, these will show in red text
+            </summary>
+            <param name="message">Message to be displayed</param>
+        </member>
+        <member name="M:TestFramework.LogFunctions.WriteInfo(System.String)">
+            <summary>
+            Write a success or info message to the log file, these will show in green text
+            </summary>
+            <param name="message">Message to be displayed</param>
+        </member>
+        <member name="T:TestFramework.PageObjects.AmazonSearchPage">
+            <summary>
+            Sample page containing object mapping and associated methods
+            This is based on the Amazon.com website
+            </summary>
+        </member>
+        <member name="M:TestFramework.PageObjects.AmazonSearchPage.TypeSearchTerm(System.String)">
+            <summary>
+            Type in the search term that has been passed in
+            </summary>
+            <param name="searchTerm"></param>
+        </member>
+        <member name="M:TestFramework.PageObjects.AmazonSearchPage.ClickSearchButton">
+            <summary>
+            Click on the search button
+            </summary>
+        </member>
+        <member name="M:TestFramework.PageObjects.AmazonSearchPage.ValidateResult(System.Int32,System.String)">
+            <summary>
+            Validate that the result in the given position in the search results has the title that is expected
+            </summary>
+            <param name="resultNum">The position in the search results of the element to validate</param>
+            <param name="resultTitle">The expected title of the element</param>
+            <returns>True if the result is as expected, false if the result is not as expected</returns>
+        </member>
+        <member name="T:TestFramework.PageObjects.Pages">
+            <summary>
+            For each data object that is created, add an entry here to initialize the page the first time that it is called
+            More informaiton on the Selenium Page Factory: https://code.google.com/p/selenium/wiki/PageFactory
+            </summary>
+        </member>
+        <member name="P:TestFramework.PageObjects.Pages.AmazonSearchPage">
+            <summary>
+            This is just a sample page, to match the AmazonSearchPage.cs page object and act as an initializer
+            </summary>
+        </member>
+    </members>
+</doc>

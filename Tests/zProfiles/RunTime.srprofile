@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TestProfile xmlns="http://www.specrun.com/schemas/2011/09/TestProfile">
+<Settings projectName="Tests" projectId="{bf607512-78cf-41f7-b7b6-2b2a524ce3c9}" />
+<Execution stopAfterFailures="100" testThreadCount="1" testSchedulingMode="Sequential" retryFor="Failing" retryCount="1" />
+<TestAssemblyPaths><TestAssemblyPath>Tests.dll</TestAssemblyPath></TestAssemblyPaths>
+  <DeploymentTransformation>
+    <Steps>
+      <RelocateConfigurationFile target="CustomConfig20160901090351{TestThreadId}.config"/>
+      <ConfigFileTransformation configFile="App.config">
+       <Transformation>
+         <![CDATA[<?xml version="1.0" encoding="utf-8"?>
+                <configuration xmlns:xdt="http://schemas.microsoft.com/XML-Document-Transform">
+                  <appSettings>
+                    <add key="browserType" value="chrome" xdt:Locator="Match(key)" xdt:Transform="SetAttributes(value)"/>
+                    <add key="FFBinary" value="C:\DefaultSeleniumFramework\Tests\Drivers\chromedriver.exe" xdt:Locator="Match(key)" xdt:Transform="SetAttributes(value)"/>
+                    <add key="URL" value="http://www.amazon.com" xdt:Locator="Match(key)" xdt:Transform="SetAttributes(value)"/>
+                    <add key="IEDriver" value="C:\DefaultSeleniumFramework" xdt:Locator="Match(key)" xdt:Transform="SetAttributes(value)"/>
+                    <add key="LogFile" value="C:\DefaultSeleniumFramework\TestResults\TestResults-amazonScenario-Search+Amazon+-+Example+of+Data+Injection-Chrome-91201690351AM.html" xdt:Locator="Match(key)" xdt:Transform="SetAttributes(value)"/>
+                    <add key="TimeStamp" value="09-01-2016 09:03:51" xdt:Locator="Match(key)" xdt:Transform="SetAttributes(value)"/>
+                    <add key="FileNamePart" value="" xdt:Locator="Match(key)" xdt:Transform="SetAttributes(value)"/>
+                    <add key="ThreadID" value="{TestThreadId}" xdt:Locator="Match(key)" xdt:Transform="SetAttributes(value)"/>
+                    <add key="WriteToDb" value="False" xdt:Locator="Match(key)" xdt:Transform="SetAttributes(value)"/>
+                    <add key="DatabaseName" value="" xdt:Locator="Match(key)" xdt:Transform="SetAttributes(value)"/>
+                  </appSettings>
+                </configuration>]]>
+        </Transformation>
+      </ConfigFileTransformation>
+    </Steps>
+  </DeploymentTransformation>
+</TestProfile>

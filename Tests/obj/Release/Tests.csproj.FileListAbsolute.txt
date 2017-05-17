@@ -1,0 +1,16 @@
+C:\Healthcare\DEN_ClearIQ\Automation\Main\Tests\bin\Release\Default.srprofile
+C:\Healthcare\DEN_ClearIQ\Automation\Main\Tests\bin\Release\Tests.dll.config
+C:\Healthcare\DEN_ClearIQ\Automation\Main\Tests\bin\Release\Tests.dll
+C:\Healthcare\DEN_ClearIQ\Automation\Main\Tests\bin\Release\Tests.pdb
+C:\Healthcare\DEN_ClearIQ\Automation\Main\Tests\bin\Release\SpecRun.SpecFlowPlugin.dll
+C:\Healthcare\DEN_ClearIQ\Automation\Main\Tests\bin\Release\TechTalk.SpecFlow.dll
+C:\Healthcare\DEN_ClearIQ\Automation\Main\Tests\bin\Release\TechTalk.SpecRun.dll
+C:\Healthcare\DEN_ClearIQ\Automation\Main\Tests\bin\Release\TestFramework.dll
+C:\Healthcare\DEN_ClearIQ\Automation\Main\Tests\bin\Release\WebDriver.dll
+C:\Healthcare\DEN_ClearIQ\Automation\Main\Tests\bin\Release\WebDriver.Support.dll
+C:\Healthcare\DEN_ClearIQ\Automation\Main\Tests\bin\Release\TestFramework.pdb
+C:\Healthcare\DEN_ClearIQ\Automation\Main\Tests\bin\Release\WebDriver.xml
+C:\Healthcare\DEN_ClearIQ\Automation\Main\Tests\bin\Release\WebDriver.Support.xml
+C:\Healthcare\DEN_ClearIQ\Automation\Main\Tests\obj\Release\Tests.csprojResolveAssemblyReference.cache
+C:\Healthcare\DEN_ClearIQ\Automation\Main\Tests\obj\Release\Tests.dll
+C:\Healthcare\DEN_ClearIQ\Automation\Main\Tests\obj\Release\Tests.pdb

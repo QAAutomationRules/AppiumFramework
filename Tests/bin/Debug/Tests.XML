@@ -1,0 +1,128 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Tests</name>
+    </assembly>
+    <members>
+        <member name="T:Tests.AmazonSearch.AmazonSearchSteps">
+            <summary>
+            This is an example of a SpecFlow steps file
+            This connects the SpecFlow statements to the code behind, ie. Selenium
+            All feature files have access to all of the steps files, therefore, the regex for each step needs to be unique
+            </summary>
+        </member>
+        <member name="F:Tests.AmazonSearch.AmazonSearchSteps._amazonData">
+            <summary>
+            This is how data injection gets parameters from the SpecFlow test case and saves them into data objects 
+            that can later be used by Selenium or used by other SpecFlow methods
+            For more information on Context Injection, go to: http://www.specflow.org/documentation/Context-Injection/
+            </summary>
+        </member>
+        <member name="M:Tests.AmazonSearch.AmazonSearchSteps.GivenIGoToWebsite(System.String)">
+            <summary>
+            Go to the specified website
+            </summary>
+            <param name="siteUrl"></param>
+        </member>
+        <member name="M:Tests.AmazonSearch.AmazonSearchSteps.GivenIAmOnPage(System.String)">
+            <summary>
+            Validate the browser is on the page that is expected
+            </summary>
+            <param name="page">string expected in the URL</param>
+        </member>
+        <member name="M:Tests.AmazonSearch.AmazonSearchSteps.GivenIEnterIntoTheSearchBox(System.String)">
+            <summary>
+            Enter in the search term provided
+            </summary>
+            <param name="searchTerm">Term used in the search</param>
+        </member>
+        <member name="M:Tests.AmazonSearch.AmazonSearchSteps.WhenIPressSearch">
+            <summary>
+            Click on the button to perform the search
+            </summary>
+        </member>
+        <member name="M:Tests.AmazonSearch.AmazonSearchSteps.ThenTheSecondResultShouldBe(System.Int32,System.String)">
+            <summary>
+            Check on the result title in the specified position on the page
+            </summary>
+            <param name="resultNum">Number of result to look at</param>
+            <param name="resultTitle">Title of the result</param>
+        </member>
+        <member name="M:Tests.AmazonSearch.AmazonSearchSteps.GivenIUseSearchTerm(System.String)">
+            <summary>
+            Store the provided search term
+            </summary>
+            <param name="searchTerm">Term used in the search</param>
+        </member>
+        <member name="M:Tests.AmazonSearch.AmazonSearchSteps.GivenIwantToValidateTheSpecifiedTitle(System.Int32)">
+            <summary>
+            Store the result number to be validated
+            </summary>
+            <param name="resultNum">The number of the item in the returned list to validate</param>
+        </member>
+        <member name="M:Tests.AmazonSearch.AmazonSearchSteps.GivenIExpectTheReturnedTitleToBe(System.String)">
+            <summary>
+            Store the expected title for the result being validated
+            </summary>
+            <param name="resultTitle">The expected title of the specified search result</param>
+        </member>
+        <member name="T:Tests.AmazonSearch.AmazonSearchStepsContextInjection">
+            <summary>
+            This SpecFlow steps file shows how Data Injection can be used to pass variables between Steps files
+            Allows the test writer to only specify a parameter once and allow the entire system to access it
+            </summary>
+        </member>
+        <member name="F:Tests.AmazonSearch.AmazonSearchStepsContextInjection._amazonData">
+            <summary>
+            This is how data injection gets parameters from the SpecFlow test case and saves them into data objects 
+            that can later be used by Selenium or used by other SpecFlow methods
+            For more information on Context Injection, go to: http://www.specflow.org/documentation/Context-Injection/
+            </summary>
+        </member>
+        <member name="M:Tests.AmazonSearch.AmazonSearchStepsContextInjection.GivenIEnterSearchTerm">
+            <summary>
+            Enter in the search term that was stored into the data object
+            </summary>
+        </member>
+        <member name="M:Tests.AmazonSearch.AmazonSearchStepsContextInjection.ThenTheSecondResultShouldBe">
+            <summary>
+            Check on the result title in the specified position on the page using the stored data
+            </summary>
+        </member>
+        <member name="T:Tests.SpecRunSetup">
+            <summary>
+            Spec Run start up to create the web driver, initialize log values, and get information from the Interface.
+            </summary>
+        </member>
+        <member name="M:Tests.SpecRunSetup.Startup">
+            <summary>
+            All setup parameters run before each feature
+            This includes creating a new web driver instance and getting values out of the app config.
+            </summary>
+        </member>
+        <member name="M:Tests.SpecRunSetup.ScenarioSetup">
+            <summary>
+            All setup parameters to run before each scenario
+            Resets the TestPass variable to true and sets the start time stamp
+            </summary>
+        </member>
+        <member name="M:Tests.SpecRunSetup.ScenarioCleanup">
+            <summary>
+            Scenario Cleanup will be run after each scenario is executed.
+            It will log the result to the database, clear the scenario context and create an assert for a failed test if needed.
+            </summary>
+        </member>
+        <member name="M:Tests.SpecRunSetup.LogResult">
+            <summary>
+            This method is used to write the test results of each test run to a database.
+            Update the Server, Database(in the dbName variable), User Id, and Password field in the connection string below
+            The SqlCommand will also need to be updated with the tablename and the columns adjusted to match the database
+            </summary>
+        </member>
+        <member name="M:Tests.SpecRunSetup.CleanUp">
+            <summary>
+            Put here all clean up parameters that should run after the entire feature set is run
+            </summary>
+        </member>
+    </members>
+</doc>

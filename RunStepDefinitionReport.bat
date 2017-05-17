@@ -1,0 +1,1 @@
+"...FrameworkTemplate\packages\SpecFlow.1.9.0\tools\specflow.exe" stepdefinitionreport "...FrameworkTemplate\Tests\Tests.csproj" /out:"...\FrameworkTemplate\StepDefinitionReport.html"

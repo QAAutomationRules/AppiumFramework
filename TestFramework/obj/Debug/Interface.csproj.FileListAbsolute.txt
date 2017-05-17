@@ -1,0 +1,11 @@
+C:\Healthcare\DEN_ClearIQ\Automation\Main\TestFramework\obj\Debug\Interface.exe
+C:\Healthcare\DEN_ClearIQ\Automation\Main\TestFramework\obj\Debug\Interface.pdb
+C:\Healthcare\DEN_ClearIQ\Automation\Main\Interface\bin\Debug\Interface.exe.config
+C:\Healthcare\DEN_ClearIQ\Automation\Main\Interface\bin\Debug\Interface.exe
+C:\Healthcare\DEN_ClearIQ\Automation\Main\Interface\bin\Debug\Interface.pdb
+C:\Healthcare\DEN_ClearIQ\Automation\Main\Interface\obj\Debug\Interface.ClearIQ.resources
+C:\Healthcare\DEN_ClearIQ\Automation\Main\Interface\obj\Debug\Interface.Properties.Resources.resources
+C:\Healthcare\DEN_ClearIQ\Automation\Main\Interface\obj\Debug\Interface.csproj.GenerateResource.Cache
+C:\Healthcare\DEN_ClearIQ\Automation\Main\Interface\obj\Debug\Interface.exe
+C:\Healthcare\DEN_ClearIQ\Automation\Main\Interface\obj\Debug\Interface.pdb
+C:\Healthcare\DEN_ClearIQ\Automation\Main\Interface\obj\Debug\Interface.csprojResolveAssemblyReference.cache

@@ -1,0 +1,2 @@
+run "C:\DefaultSeleniumFramework\Tests\zProfiles\RunTime.srprofile" "/baseFolder:C:\DefaultSeleniumFramework\Tests\bin\Debug" "/outputFolder:C:\DefaultSeleniumFramework\TestResults" "/report:TestResults-amazonScenario-Search+Amazon+-+Example+of+Data+Injection-Chrome-91201690351AM.html" "/filter:testpath:*Search+Amazon+-+Example+of+Data+Injection & !@design & !@Design
+URL to be tested is: "http://www.amazon.com"
