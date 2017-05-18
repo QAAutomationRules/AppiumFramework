@@ -84,6 +84,7 @@ namespace TestFramework
         {
             var myBrowser = ConfigurationManager.AppSettings["browserType"].ToLower();
             DesiredCapabilities _dc;
+            ChromeOptions options;
             IEnumerable<int> pidsBefore;
             IEnumerable<int> pidsAfter;
 
@@ -91,22 +92,31 @@ namespace TestFramework
             {
                 case "android":
                     Console.WriteLine("Connecting to Appium server");
+                    //options = new ChromeOptions();
                     _dc = new DesiredCapabilities();
                     _dc.SetCapability(CapabilityType.Platform, "Android");
-                    _dc.SetCapability(CapabilityType.Version, "6.0");
+                    _dc.SetCapability("automationName", "Appium");
+                    _dc.SetCapability(CapabilityType.Version, "7.0");
                     _dc.SetCapability("Device", "Android");
-                    _dc.SetCapability("deviceName", "Nexus_5:5554");
+                    _dc.SetCapability("deviceName", "Android Emulator");
+                    //_dc.SetCapability("testobject_api_key", "");
+                    _dc.SetCapability("chromedriverExecutable", Path.Combine(GetBasePath, @"Drivers\chromedriver.exe"));
                     _dc.SetCapability(CapabilityType.BrowserName, "Chrome");
+                    //_dc.SetCapability(ChromeOptions.Capability, options);
+                    //_dc.SetCapability("autoWebview", "true");
                     _webDriver = new AndroidDriver<IWebElement>(new Uri("http://127.0.0.1:4723/wd/hub"), _dc);
                     _wait = new WebDriverWait(_webDriver, TimeSpan.FromSeconds(20));
-                    //pidsAfter = Process.GetProcessesByName("android").Select(p => p.Id);
+                    pidsAfter = Process.GetProcessesByName("android").Select(p => p.Id);
                     break;
                 case "ios":
                     _dc = new DesiredCapabilities();
-                    _dc.SetCapability("platformName", "IOS");
-                    _dc.SetCapability("platformVersion", "");
-                    _dc.SetCapability("deviceName", "test");
-                    _webDriver = new IOSDriver<IOSElement>(_dc);
+                    _dc.SetCapability(CapabilityType.Platform, "IOS");
+                    _dc.SetCapability("automationName", "XCUITest");
+                    _dc.SetCapability(CapabilityType.Version, "10.3.2");
+                    _dc.SetCapability("Device", "IOS");
+                    _dc.SetCapability("deviceName", "Kyle's iPhone");
+                    _dc.SetCapability(CapabilityType.BrowserName, "Chrome");
+                    _webDriver = new IOSDriver<IWebElement>(new Uri("http://127.0.0.1:4723/wd/hub"), _dc);
                     _wait = new WebDriverWait(_webDriver, TimeSpan.FromSeconds(20));
                     pidsAfter = Process.GetProcessesByName("ios").Select(p => p.Id);
                     break;
@@ -117,7 +127,7 @@ namespace TestFramework
                     pidsAfter = Process.GetProcessesByName("iexplore").Select(p => p.Id);
                     break;
                 case "chrome":
-                    ChromeOptions options = new ChromeOptions();
+                    options = new ChromeOptions();
                     options.AddArguments("--disable-extensions");
                     pidsBefore = Process.GetProcessesByName("chrome").Select(p => p.Id);
                     _webDriver = new ChromeDriver(Path.Combine(GetBasePath, @"Drivers\"), options);
@@ -148,7 +158,7 @@ namespace TestFramework
         {
             double initialTimeout = _wait.Timeout.Seconds;
             _wait.Timeout = TimeSpan.FromSeconds(120);
-            _webDriver.Url = url;
+            _webDriver.Navigate().GoToUrl(url);
             _wait.Timeout = TimeSpan.FromSeconds(initialTimeout);
         }
         public static void Quit()
